@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Arquivo de variáveis de ambiente
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Nodemon
+.nodemon.json
+
+# Arquivos temporários
+*.tmp
+*.swp
