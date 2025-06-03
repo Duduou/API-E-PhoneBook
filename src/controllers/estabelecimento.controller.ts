@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { EstabelecimentoService } from '../services/estabelecimento.service';
 import { estabelecimentoSchema } from '../schemas/estabelecimento.schema';
-import { upload } from '../middlewares/upload.middleware';
 
 export const EstabelecimentoController = {
   async create(req: Request, res: Response) {
