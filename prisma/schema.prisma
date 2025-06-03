@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id          Int           @id @default(autoincrement())
+  nome        String
+  email       String        @unique
+  senha       String
+  foto        String? 
+  admin       Boolean       @default(false)
+  //estabelecimentos Consultas[]
+}
+
+model Estabelecimento {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  descricao   String
+  endereco    String
+  latitude    Float
+  longitude   Float
+  whatsapp    String?
+  facebook    String?
+  instagram   String?
+  fotoPerfil  String?
+  fotos       Foto[]
+  categorias  CategoriaEstabelecimento[]
+  telefones   Telefone[]
+  emails      Email[]
+  //consultas   Consultas[]
+  tags        TagEstabelecimento[]
+}
+
+model Foto {
+  id                Int              @id @default(autoincrement())
+  url               String
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimentoId Int
+}
+
+model Telefone {
+  id                Int              @id @default(autoincrement())
+  numero            String
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimentoId Int
+}
+
+model Email {
+  id                Int              @id @default(autoincrement())
+  email             String
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimentoId Int
+}
+
+model Categoria {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  imagem      String?
+  estabelecimentos CategoriaEstabelecimento[]
+}
+
+model Tag {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  estabelecimentos TagEstabelecimento[]
+}
+
+model CategoriaEstabelecimento {
+  estabelecimentoId Int
+  categoriaId       Int
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  categoria         Categoria       @relation(fields: [categoriaId], references: [id])
+  @@id([estabelecimentoId, categoriaId])
+}
+
+model TagEstabelecimento {
+  estabelecimentoId Int
+  tagId             Int
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  tag               Tag             @relation(fields: [tagId], references: [id])
+  @@id([estabelecimentoId, tagId])
+}
+
+// model Consultas {
+//   usuarioId         Int
+//   estabelecimentoId Int
+//   usuario           Usuario         @relation(fields: [usuarioId], references: [id])
+//   estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+//   @@id([usuarioId, estabelecimentoId])
+// }

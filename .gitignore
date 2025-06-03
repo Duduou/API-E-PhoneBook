@@ -1,21 +1,5 @@
-# Node modules
-node_modules/
-
-# Arquivo de variáveis de ambiente
+node_modules
+dist
 .env
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-
-# Diretórios do sistema
-.DS_Store
-Thumbs.db
-
-# Nodemon
-.nodemon.json
-
-# Arquivos temporários
-*.tmp
-*.swp
+prisma/dev.db
+prisma/dev.db-journal
