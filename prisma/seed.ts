@@ -8,7 +8,7 @@ async function main() {
   const admin = await prisma.usuario.create({
     data: {
       nome: 'Carlos Eduardo Ivankio Franco',
-      email: 'duduif3107@gmail.com.com',
+      email: 'duduif3107@gmail.com',
       senha: hashed,
       admin: true,
     }
