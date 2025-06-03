@@ -82,14 +82,14 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Padaria do Zé",
-  "descricao": "Pães fresquinhos todos os dias",
-  "endereco": "Rua das Flores, 123",
-	"longitude": "987654321",
-	"latitude": "123456789",
+  "nome": "Loja X",
+  "descricao": "Loja de eletrônicos",
+  "endereco": "Rua Y, 123",
+  "latitude": -23.5,
+  "longitude": -46.6,
   "whatsapp": "51999999999",
-  "facebook": "facebook.com/padariadoze",
-  "instagram": "@padariadoze"
+  "facebook": "facebook.com/LojaX",
+  "instagram": "@lojaX"
 }
 ```
 
