@@ -121,7 +121,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ---
 
-## 💼 Categoria
+## 🗂️ Categoria
 
 ### POST /categorias
 
@@ -138,6 +138,15 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 ### GET /categorias
 
 * Lista todas as categorias.
+
+### POST /categorias/\:id/imagem
+
+* Atualiza a imagem da categoria.
+* **Header:** Authorization: Bearer <admin-token>
+* **Form-Data:**
+
+  * **arquivo**: (imagem)
+* **Retorno:** dados da categoria com imagem atualizada
 
 ---
 
@@ -160,7 +169,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ---
 
-## 🪧 Associação
+## 🧷 Associação
 
 ### POST /estabelecimentos/\:id/categorias
 

@@ -8,6 +8,9 @@ app.use(express.json());
 import path from 'path';
 app.use('/uploads', express.static(path.resolve('uploads')));
 
+import usuarioRoutes from './routes/usuario.routes';
+app.use('/usuarios', usuarioRoutes);
+
 import authRoutes from './routes/auth.routes';
 app.use(authRoutes);
 

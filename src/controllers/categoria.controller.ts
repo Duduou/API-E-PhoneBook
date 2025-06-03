@@ -56,5 +56,19 @@ export const CategoriaController = {
     const id = parseInt(req.params.id);
     await CategoriaService.delete(id);
     res.status(204).send();
+  },
+
+  async uploadImagem(req: Request, res: Response) {
+    try {
+      const id = parseInt(req.params.id);
+      if (req.file) {
+        const imagem = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+        const categoria = await CategoriaService.updateImagem(id, imagem);
+        res.status(200).json(categoria);
+      }
+      else res.status(400).json({ error: 'Arquivo não enviado' });
+    } catch (error) {
+      res.status(400).json({ error: 'Erro ao atualizar imagem da categoria.' });
+    }
   }
 };

@@ -21,7 +21,7 @@ export const AuthService = {
     }
 
     const token = jwt.sign(
-      {id: user.id, admin: user.admin},
+      {sub: user.id, admin: user.admin},
       authConfig.secret,
       { expiresIn: "1d"}
     )

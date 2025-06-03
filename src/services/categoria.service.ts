@@ -40,5 +40,12 @@ export const CategoriaService = {
 
   async delete(id: number) {
     return prisma.categoria.delete({ where: { id } });
+  },
+
+  async updateImagem(id: number, imagem: string) {
+    return prisma.categoria.update({
+      where: { id },
+      data: { imagem }
+    });
   }
 };

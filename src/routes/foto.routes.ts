@@ -15,7 +15,7 @@ router.post(
             const foto = await FotoService.create(estabelecimentoId, url);
             res.status(201).json(foto);
         }
-        else res.status(400).json({ error: 'Arquivo não enviado' });
+        else res.status(400).json({ error: 'Arquivo não enviado.' });
     }
     catch (error) {
         if (error instanceof Error) {
