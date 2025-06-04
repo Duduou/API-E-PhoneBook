@@ -82,27 +82,23 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Loja X",
-  "descricao": "Loja de eletrônicos",
-  "endereco": "Rua Y, 123",
+  "nome": "Loja",
+  "descricao": "Loja de conveniencia",
+  "endereco": "Rua R, 123",
   "latitude": -23.5,
   "longitude": -46.6,
   "whatsapp": "51999999999",
-  "facebook": "facebook.com/LojaX",
-  "instagram": "@lojaX"
+  "facebook": "facebook.com/Loja",
+  "instagram": "@loja"
 }
 ```
 
 * **Retorno:** dados do estabelecimento criado
 
----
-
 ### GET /estabelecimentos
 
 * Lista todos os estabelecimentos (autenticado).
 * **Header:** Authorization: Bearer <token>
-
----
 
 ### POST /estabelecimentos/\:id/foto-perfil
 
@@ -112,8 +108,6 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
   * **arquivo**: (imagem)
 * **Retorno:** dados do estabelecimento com `fotoPerfil`
 
----
-
 ### POST /estabelecimentos/\:id/fotos/upload
 
 * Faz upload de imagem para a galeria.
@@ -121,6 +115,35 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
   * **arquivo**: (imagem)
 * **Retorno:** dados da foto associada
+
+---
+
+## 🗓️ Horário de Funcionamento
+
+### POST /estabelecimentos/\:id/horario
+
+* Cria horário de funcionamento para o estabelecimento.
+* **Body:**
+
+```json
+{
+  "seg": "08:00-18:00",
+  "sab": "09:00-13:00"
+}
+```
+
+### GET /estabelecimentos/\:id/horario
+
+* Retorna o horário do estabelecimento.
+
+### PUT /estabelecimentos/\:id/horario
+
+* Atualiza o horário do estabelecimento.
+* Mesmo formato do POST.
+
+### DELETE /estabelecimentos/\:id/horario
+
+* Remove o horário do estabelecimento.
 
 ---
 
@@ -133,7 +156,8 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Saúde"
+  "nome": "Saúde",
+  "imagem": "http://..."
 }
 ```
 
@@ -168,6 +192,22 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 ### GET /tags
 
 * Lista todas as tags.
+
+---
+
+## ⭐ Favoritos
+
+### POST /favoritos/\:id
+
+* Adiciona o estabelecimento aos favoritos do usuário autenticado.
+
+### DELETE /favoritos/\:id
+
+* Remove o estabelecimento dos favoritos.
+
+### GET /favoritos
+
+* Lista os estabelecimentos favoritos do usuário autenticado.
 
 ---
 

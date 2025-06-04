@@ -35,6 +35,12 @@ app.use(buscaRoutes);
 import fotoRoutes from './routes/foto.routes';
 app.use(fotoRoutes);
 
+import horarioRoutes from './routes/horario.routes';
+app.use(horarioRoutes);
+
+import favoritaRoutes from './routes/favorita.routes';
+app.use(favoritaRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
