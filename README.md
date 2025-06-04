@@ -156,8 +156,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Saúde",
-  "imagem": "http://..."
+  "nome": "Saúde"
 }
 ```
 
