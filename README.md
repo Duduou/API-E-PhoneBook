@@ -97,7 +97,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### GET /estabelecimentos
 
-* Lista todos os estabelecimentos (autenticado).
+* Lista todos os estabelecimentos.
 * **Header:** Authorization: Bearer <token>
 
 ### POST /estabelecimentos/\:id/foto-perfil
