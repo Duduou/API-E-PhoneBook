@@ -77,7 +77,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos
 
-* Cria um novo estabelecimento.
+* Cria um novo estabelecimento (admin).
 * **Body:**
 
 ```json
@@ -110,7 +110,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos/\:id/fotos/upload
 
-* Faz upload de imagem para a galeria.
+* Faz upload de imagem para a galeria (admin).
 * **Form-Data:**
 
   * **arquivo**: (imagem)
@@ -122,7 +122,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos/\:id/horario
 
-* Cria horário de funcionamento para o estabelecimento.
+* Cria horário de funcionamento para o estabelecimento (admin).
 * **Body:**
 
 ```json
@@ -138,12 +138,12 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### PUT /estabelecimentos/\:id/horario
 
-* Atualiza o horário do estabelecimento.
+* Atualiza o horário do estabelecimento (admin).
 * Mesmo formato do POST.
 
 ### DELETE /estabelecimentos/\:id/horario
 
-* Remove o horário do estabelecimento.
+* Remove o horário do estabelecimento (admin).
 
 ---
 
