@@ -63,12 +63,14 @@ model Categoria {
   nome             String
   imagem           String?
   estabelecimentos CategoriaEstabelecimento[]
+  tags             CategoriaTag[]
 }
 
 model Tag {
   id               Int                  @id @default(autoincrement())
   nome             String
   estabelecimentos TagEstabelecimento[]
+  categorias       CategoriaTag[]
 }
 
 model CategoriaEstabelecimento {
@@ -87,6 +89,16 @@ model TagEstabelecimento {
   tag               Tag             @relation(fields: [tagId], references: [id])
 
   @@id([estabelecimentoId, tagId])
+}
+
+model CategoriaTag {
+  categoriaId Int
+  tagId       Int
+
+  categoria Categoria @relation(fields: [categoriaId], references: [id])
+  tag       Tag       @relation(fields: [tagId], references: [id])
+
+  @@id([categoriaId, tagId])
 }
 
 model Horario {

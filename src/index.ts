@@ -41,7 +41,7 @@ app.use(horarioRoutes);
 import favoritaRoutes from './routes/favorita.routes';
 app.use(favoritaRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+//const PORT = process.env.PORT || 3000;
+app.listen(3000, '0.0.0.0',() => {
+  console.log(`Servidor rodando em http://localhost:3000`);
 });

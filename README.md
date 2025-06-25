@@ -77,7 +77,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos
 
-* Cria um novo estabelecimento (admin).
+* Cria um novo estabelecimento.
 * **Body:**
 
 ```json
@@ -97,7 +97,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### GET /estabelecimentos
 
-* Lista todos os estabelecimentos.
+* Lista todos os estabelecimentos (autenticado).
 * **Header:** Authorization: Bearer <token>
 
 ### POST /estabelecimentos/\:id/foto-perfil
@@ -110,7 +110,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos/\:id/fotos/upload
 
-* Faz upload de imagem para a galeria (admin).
+* Faz upload de imagem para a galeria.
 * **Form-Data:**
 
   * **arquivo**: (imagem)
@@ -122,7 +122,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### POST /estabelecimentos/\:id/horario
 
-* Cria horário de funcionamento para o estabelecimento (admin).
+* Cria horário de funcionamento para o estabelecimento.
 * **Body:**
 
 ```json
@@ -138,12 +138,12 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ### PUT /estabelecimentos/\:id/horario
 
-* Atualiza o horário do estabelecimento (admin).
+* Atualiza o horário do estabelecimento.
 * Mesmo formato do POST.
 
 ### DELETE /estabelecimentos/\:id/horario
 
-* Remove o horário do estabelecimento (admin).
+* Remove o horário do estabelecimento.
 
 ---
 
@@ -156,7 +156,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Saúde"
+  "nome": "Saúde",
 }
 ```
 
@@ -172,6 +172,25 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
   * **arquivo**: (imagem)
 * **Retorno:** dados da categoria com imagem atualizada
+
+### POST /categorias/\:id/tags
+
+* Associa uma ou mais tags a uma categoria.
+* **Body:**
+
+```json
+{
+  "tagIds": [1, 2]
+}
+```
+
+### DELETE /categorias/\:id/tags/\:tagId
+
+* Remove a associação de uma tag da categoria.
+
+### GET /categorias/\:id/tags
+
+* Lista todas as tags associadas à categoria.
 
 ---
 
