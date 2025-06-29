@@ -71,6 +71,18 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 }
 ```
 
+### GET /usuarios/foto
+
+* Retorna a foto do usuário autenticado.
+* **Header:** Authorization: Bearer <token>
+* **Retorno:**
+
+```json
+{
+  "foto": "http://localhost:3000/uploads/abc.jpg"
+}
+```
+
 ---
 
 ## 🏢 Estabelecimento
@@ -82,14 +94,11 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 
 ```json
 {
-  "nome": "Loja",
-  "descricao": "Loja de conveniencia",
-  "endereco": "Rua R, 123",
+  "nome": "Loja X",
+  "descricao": "Loja de eletrônicos",
+  "endereco": "Rua Y, 123",
   "latitude": -23.5,
-  "longitude": -46.6,
-  "whatsapp": "51999999999",
-  "facebook": "facebook.com/Loja",
-  "instagram": "@loja"
+  "longitude": -46.6
 }
 ```
 
@@ -116,34 +125,24 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
   * **arquivo**: (imagem)
 * **Retorno:** dados da foto associada
 
----
+### Subrotas: Telefones
 
-## 🗓️ Horário de Funcionamento
+* **POST /estabelecimentos/\:id/telefones** – Adiciona telefone
+* **GET /estabelecimentos/\:id/telefones** – Lista telefones
+* **DELETE /telefones/\:id** – Remove telefone
 
-### POST /estabelecimentos/\:id/horario
+### Subrotas: Emails
 
-* Cria horário de funcionamento para o estabelecimento.
-* **Body:**
+* **POST /estabelecimentos/\:id/emails** – Adiciona email
+* **GET /estabelecimentos/\:id/emails** – Lista emails
+* **DELETE /emails/\:id** – Remove email
 
-```json
-{
-  "seg": "08:00-18:00",
-  "sab": "09:00-13:00"
-}
-```
+### Subrotas: Horário
 
-### GET /estabelecimentos/\:id/horario
-
-* Retorna o horário do estabelecimento.
-
-### PUT /estabelecimentos/\:id/horario
-
-* Atualiza o horário do estabelecimento.
-* Mesmo formato do POST.
-
-### DELETE /estabelecimentos/\:id/horario
-
-* Remove o horário do estabelecimento.
+* **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento
+* **GET /estabelecimentos/\:id/horario** – Consulta horário
+* **PUT /estabelecimentos/\:id/horario** – Atualiza horário
+* **DELETE /estabelecimentos/\:id/horario** – Remove horário
 
 ---
 
@@ -157,6 +156,7 @@ Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON.
 ```json
 {
   "nome": "Saúde",
+  "imagem": "http://..."
 }
 ```
 
