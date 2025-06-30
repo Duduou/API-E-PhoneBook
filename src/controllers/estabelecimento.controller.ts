@@ -63,7 +63,7 @@ export const EstabelecimentoController = {
       if (req.file)
       {
         const estabelecimentoId = parseInt(req.params.id);
-        const url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+        const url = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
         const updated = await EstabelecimentoService.updateFotoPerfil(estabelecimentoId, url);
         res.status(200).json(updated);
       }

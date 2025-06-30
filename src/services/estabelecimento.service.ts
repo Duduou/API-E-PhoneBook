@@ -13,12 +13,9 @@ export const EstabelecimentoService = {
         fotos: true,
         telefones: true,
         emails: true,
-        categorias: {
-          include: { categoria: true }
-        },
-        tags: {
-          include: { tag: true }
-        }
+        categorias: { include: { categoria: true } },
+        tags: { include: { tag: true } },
+        horario: true,
       }
     });
   },
@@ -31,7 +28,8 @@ export const EstabelecimentoService = {
         telefones: true,
         emails: true,
         categorias: { include: { categoria: true } },
-        tags: { include: { tag: true } }
+        tags: { include: { tag: true } },
+        horario: true,
       }
     });
   },

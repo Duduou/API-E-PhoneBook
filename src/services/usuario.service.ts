@@ -8,4 +8,8 @@ export const UsuarioService = {
       data: { foto: url }
     });
   },
+
+  async buscarPorId(id: number) {
+    return prisma.usuario.findUnique({ where: { id } });
+  }
 };

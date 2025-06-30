@@ -62,7 +62,7 @@ export const CategoriaController = {
     try {
       const id = parseInt(req.params.id);
       if (req.file) {
-        const imagem = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+        const imagem = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
         const categoria = await CategoriaService.updateImagem(id, imagem);
         res.status(200).json(categoria);
       }

@@ -22,8 +22,8 @@ model Estabelecimento {
   nome          String
   descricao     String
   endereco      String
-  latitude      Float
-  longitude     Float
+  latitude      Double
+  longitude     Double
   whatsapp      String?
   facebook      String?
   instagram     String?

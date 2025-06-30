@@ -43,5 +43,5 @@ app.use(favoritaRoutes);
 
 //const PORT = process.env.PORT || 3000;
 app.listen(3000, '0.0.0.0',() => {
-  console.log(`Servidor rodando em http://localhost:3000`);
+  console.log(`Servidor rodando em http://0.0.0.0:3000`);
 });

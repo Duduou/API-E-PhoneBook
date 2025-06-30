@@ -9,4 +9,8 @@ router.use(authenticate);
 
 router.post('/foto', upload.single('arquivo'), UsuarioController.uploadFoto);
 
+router.get('/foto', UsuarioController.getFoto);
+
+router.get('/nome', UsuarioController.getNome);
+
 export default router;

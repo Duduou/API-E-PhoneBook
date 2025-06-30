@@ -5,6 +5,6 @@ import { authenticate } from '../middlewares/auth.middleware';
 
 const router = Router();
 
-router.post('/upload', authenticate,upload.single('arquivo'), UploadController.uploadSingle);
+router.post('/upload', authenticate, upload.single('arquivo'), UploadController.uploadSingle);
 
 export default router;

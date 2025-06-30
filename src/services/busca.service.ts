@@ -6,8 +6,7 @@ export const BuscaService = {
     return prisma.estabelecimento.findMany({
       where: {
         nome: {
-          contains: nome,
-          mode: 'insensitive',
+          contains: nome.toLowerCase()
         }
       },
       include: {
