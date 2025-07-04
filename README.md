@@ -2,7 +2,7 @@
 
 Para criação do usuário admin, crie o arquivo `seed.ts` na pasta do prisma, seu contedo deve ser:
 
-`
+<pre><code> ```
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
@@ -29,7 +29,7 @@ main()
   .finally(() => {
     prisma.$disconnect();
   });
-`
+```</code></pre>
 
 E o arquivo .env na raiz do projeto, deve definir os seguintes atributos:
 
