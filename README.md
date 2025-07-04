@@ -2,7 +2,7 @@
 
 Para criação do usuário admin, crie o arquivo `seed.ts` na pasta do prisma, seu contedo deve ser:
 
-<pre><code> ```
+<pre><code>
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
@@ -29,7 +29,7 @@ main()
   .finally(() => {
     prisma.$disconnect();
   });
-```</code></pre>
+</code></pre>
 
 E o arquivo .env na raiz do projeto, deve definir os seguintes atributos:
 
@@ -45,9 +45,9 @@ Porta do pc onde rodará a API.
 - HOST_PUBLIC="localhost"
 Endreço ip onde rodará a API, localhost caso seja local.
 
-após isso rodar o comando `npm intall` no prompt e quando pronto rodar `npx prisma migrate dev --name init`.
+Após isso rodar o comando `npm intall` no prompt e quando pronto rodar `npx prisma migrate dev --name init`.
 
-então após realizada a instalação, basta rodar `npm run dev` para subir o servidor;
+Então após realizada a instalação, basta rodar `npm run dev` para subir o servidor;
 
 ---
 
