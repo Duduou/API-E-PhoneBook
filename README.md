@@ -33,16 +33,16 @@ main()
 
 E o arquivo .env na raiz do projeto, deve definir os seguintes atributos:
 
-- DATABASE_URL="file:./dev.db"
+- `DATABASE_URL="file:./dev.db"`
 Url onde o banco de dados sqlite ficara salvo.
 
-- JWT_SECRET="chaveDoBalacobaco"
+- `JWT_SECRET="chaveDoBalacobaco"`
 Chave para criptografar e descriptografar os JWT.
 
-- PORT=3000
+- `PORT=3000`
 Porta do pc onde rodará a API.
 
-- HOST_PUBLIC="localhost"
+- `HOST_PUBLIC="localhost"`
 Endreço ip onde rodará a API, localhost caso seja local.
 
 Após isso rodar o comando `npm intall` no prompt e quando pronto rodar `npx prisma migrate dev --name init`.
