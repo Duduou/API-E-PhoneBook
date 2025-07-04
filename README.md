@@ -31,7 +31,7 @@ main()
   });
 </code></pre>
 
-E o arquivo .env na raiz do projeto, deve definir os seguintes atributos:
+E o arquivo `.env` deve ser adicionado na raiz do projeto e deve definir os seguintes atributos:
 
 - `DATABASE_URL="file:./dev.db"`
 Url onde o banco de dados sqlite ficara salvo.
