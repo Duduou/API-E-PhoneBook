@@ -1,5 +1,11 @@
 import { Request, Response } from 'express';
 import { UsuarioService } from '../services/usuario.service';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const HOST_PUBLIC = process.env.HOST_PUBLIC || 'localhost';
+const PORT = process.env.PORT || 3000;
+
 
 export const UsuarioController = {
   async uploadFoto(req: Request, res: Response) {
@@ -9,7 +15,7 @@ export const UsuarioController = {
             const userId = req.user?.id;
             console.log(req.user?.id);
             if (userId) {
-                const url = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
+                const url = `${req.protocol}://${HOST_PUBLIC}:${PORT}/uploads/${req.file.filename}`;
                 const updated = await UsuarioService.updateFoto(userId, url);
                 res.status(200).json(updated);
             }

@@ -1,5 +1,10 @@
 import express from 'express';
 import helmet from 'helmet';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const HOST_PUBLIC = process.env.HOST_PUBLIC || 'localhost';
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(helmet());
@@ -41,7 +46,6 @@ app.use(horarioRoutes);
 import favoritaRoutes from './routes/favorita.routes';
 app.use(favoritaRoutes);
 
-//const PORT = process.env.PORT || 3000;
 app.listen(3000, '0.0.0.0',() => {
-  console.log(`Servidor rodando em http://0.0.0.0:3000`);
+  console.log(`Servidor rodando em http://${HOST_PUBLIC}:${PORT}`);
 });

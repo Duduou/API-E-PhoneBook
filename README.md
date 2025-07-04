@@ -1,6 +1,53 @@
 # 📘 Especificações das Rotas da API EPhone\_Book
 
-Todas as rotas da API seguem o padrão RESTful e retornam dados no formato JSON. Algumas exigem autenticação via JWT (Bearer Token).
+Para criação do usuário admin, crie o arquivo `seed.ts` na pasta do prisma, seu contedo deve ser:
+
+`
+import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
+
+const prisma = new PrismaClient();
+
+async function main() {
+  const hashed = await bcrypt.hash('(TROCAR POR SENHA DO ADMIN)', 10);
+  const admin = await prisma.usuario.create({
+    data: {
+      nome: '(TROCAR POR NOME DO ADMIN)',
+      email: '(TROCAR POR EMAIL DO ADMIN)',
+      senha: hashed,
+      admin: true,
+    }
+  });
+  console.log('Usuário admin criado:', admin);
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(() => {
+    prisma.$disconnect();
+  });
+`
+
+E o arquivo .env na raiz do projeto, deve definir os seguintes atributos:
+
+- DATABASE_URL="file:./dev.db"
+Url onde o banco de dados sqlite ficara salvo.
+
+- JWT_SECRET="chaveDoBalacobaco"
+Chave para criptografar e descriptografar os JWT.
+
+- PORT=3000
+Porta do pc onde rodará a API.
+
+- HOST_PUBLIC="localhost"
+Endreço ip onde rodará a API, localhost caso seja local.
+
+após isso rodar o comando `npm intall` no prompt e quando pronto rodar `npx prisma migrate dev --name init`.
+
+então após realizada a instalação, basta rodar `npm run dev` para subir o servidor;
 
 ---
 

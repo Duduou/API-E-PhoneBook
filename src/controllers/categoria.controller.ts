@@ -1,6 +1,11 @@
 import { Request, Response } from 'express';
 import { CategoriaService } from '../services/categoria.service';
 import { categoriaSchema } from '../schemas/categoria.schema';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const HOST_PUBLIC = process.env.HOST_PUBLIC || 'localhost';
+const PORT = process.env.PORT || 3000;
 
 export const CategoriaController = {
   async index(req: Request, res: Response) {
@@ -62,7 +67,7 @@ export const CategoriaController = {
     try {
       const id = parseInt(req.params.id);
       if (req.file) {
-        const imagem = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
+        const imagem = `${req.protocol}://${HOST_PUBLIC}:${PORT}/uploads/${req.file.filename}`;
         const categoria = await CategoriaService.updateImagem(id, imagem);
         res.status(200).json(categoria);
       }

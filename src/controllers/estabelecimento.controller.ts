@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import { EstabelecimentoService } from '../services/estabelecimento.service';
 import { estabelecimentoSchema } from '../schemas/estabelecimento.schema';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const HOST_PUBLIC = process.env.HOST_PUBLIC || 'localhost';
+const PORT = process.env.PORT || 3000;
+
 
 export const EstabelecimentoController = {
   async create(req: Request, res: Response) {
@@ -63,7 +69,7 @@ export const EstabelecimentoController = {
       if (req.file)
       {
         const estabelecimentoId = parseInt(req.params.id);
-        const url = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
+        const url = `${req.protocol}://${HOST_PUBLIC}:${PORT}/${req.file.filename}`;
         const updated = await EstabelecimentoService.updateFotoPerfil(estabelecimentoId, url);
         res.status(200).json(updated);
       }

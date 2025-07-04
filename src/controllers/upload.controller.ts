@@ -1,11 +1,16 @@
 import { Request, Response } from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const HOST_PUBLIC = process.env.HOST_PUBLIC || 'localhost';
+const PORT = process.env.PORT || 3000;
 
 export const UploadController = {
   uploadSingle(req: Request, res: Response) {
     try {
         if(req.file)
         {
-            const fileUrl = `${req.protocol}://192.168.1.203:3000/uploads/${req.file.filename}`;
+            const fileUrl = `${req.protocol}://${HOST_PUBLIC}:${PORT}/uploads/${req.file.filename}`;
             res.status(201).json({ url: fileUrl });
         }
         else
