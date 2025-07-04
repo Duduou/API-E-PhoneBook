@@ -1,4 +1,4 @@
-# 📘 Especificações das Rotas da API EPhone\_Book
+# 📘 Especificações da API EPhone\_Book
 
 Para criação do usuário admin, crie o arquivo `seed.ts` na pasta do prisma, seu contedo deve ser:
 
@@ -141,11 +141,14 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ```json
 {
-  "nome": "Loja X",
-  "descricao": "Loja de eletrônicos",
-  "endereco": "Rua Y, 123",
-  "latitude": -23.5,
-  "longitude": -46.6
+  "nome": "Sorveteria A",
+  "descricao": "O maior buffet de sorvete da região , taças decoradas e café com tortas e salgados.",
+  "endereco": "Av. B, 1495 - Vila R",
+	"longitude": "-29.956930356791243",
+	"latitude": "-51.6326910999605",
+  "whatsapp": "5551999999999",
+  "facebook": "https://www.facebook.com/sorveteria",
+  "instagram": "sorveteria"
 }
 ```
 
@@ -202,8 +205,7 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ```json
 {
-  "nome": "Saúde",
-  "imagem": "http://..."
+  "nome": "Saúde"
 }
 ```
 
