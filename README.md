@@ -144,8 +144,8 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
   "nome": "Sorveteria A",
   "descricao": "O maior buffet de sorvete da região , taças decoradas e café com tortas e salgados.",
   "endereco": "Av. B, 1495 - Vila R",
-  "longitude": "-29.956930356791243",
-  "latitude": "-51.6326910999605",
+  "longitude": "-29.900000000",
+  "latitude": "-51.600000000",
   "whatsapp": "5551999999999",
   "facebook": "https://www.facebook.com/sorveteria",
   "instagram": "sorveteria"
