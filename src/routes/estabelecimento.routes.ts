@@ -8,9 +8,9 @@ const router = Router();
 
 router.get('/', EstabelecimentoController.index);
 router.get('/:id', EstabelecimentoController.show);
-router.post('/', authenticate, isAdmin, EstabelecimentoController.create);
-router.put('/:id', authenticate, isAdmin, EstabelecimentoController.update);
-router.delete('/:id', authenticate, isAdmin, EstabelecimentoController.delete);
-router.post('/:id/foto-perfil', authenticate, isAdmin, upload.single('arquivo'), EstabelecimentoController.uploadFotoPerfil);
+router.post('/', authenticate, EstabelecimentoController.create);
+router.put('/:id', authenticate, EstabelecimentoController.update);
+router.delete('/:id', authenticate, EstabelecimentoController.delete);
+router.post('/:id/foto-perfil', authenticate, upload.single('arquivo'), EstabelecimentoController.uploadFotoPerfil);
 
 export default router;

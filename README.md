@@ -33,8 +33,8 @@ main()
 
 E o arquivo `.env` deve ser adicionado na raiz do projeto e deve definir os seguintes atributos:
 
-- `DATABASE_URL="file:./dev.db"`
-Url onde o banco de dados sqlite ficara salvo.
+- `DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/ephonebook"`
+Url para acesso ao banco de dados MySQL.
 
 - `JWT_SECRET="chaveDoBalacobaco"`
 Chave para criptografar e descriptografar os JWT.
@@ -314,7 +314,11 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ## 🔍 Busca pública
 
-### GET /buscar?nome=padaria
+### GET /buscar?term=padaria
+
+* Busca geral (parcial, sem autenticação)
+
+### GET /buscarNome?nome=padaria
 
 * Busca por nome (parcial, sem autenticação)
 

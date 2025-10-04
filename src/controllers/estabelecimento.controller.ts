@@ -12,8 +12,13 @@ export const EstabelecimentoController = {
   async create(req: Request, res: Response) {
     try {
       const data = estabelecimentoSchema.parse(req.body);
-      const estabelecimento = await EstabelecimentoService.create(data);
-      res.status(201).json(estabelecimento);
+      const userId = req.user?.id;
+      if (userId) {
+        const estabelecimento = await EstabelecimentoService.create(data, userId);
+        res.status(201).json(estabelecimento);
+      } else {
+        res.status(401).json({ error: 'Usuário não autenticado.' });
+      }
     } catch (error) {
         if (error instanceof Error) {
           res.status(400).json({ error: error.message });

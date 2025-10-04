@@ -2,19 +2,34 @@ import { Request, Response } from 'express';
 import { BuscaService } from '../services/busca.service';
 
 export const BuscaController = {
+  async buscar(req: Request, res: Response) {
+    try {
+      const termo = req.query.term as string;
+      const resultados = await BuscaService.buscar(termo);
+      res.json(resultados);
+
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(400).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: 'Ocorreu um erro desconhecido.' });
+      }
+    }
+  },
+
   async porNome(req: Request, res: Response) {
     try{
-        const nome = req.query.nome as string;
-        const resultados = await BuscaService.porNome(nome);
-        res.json(resultados);
+      const nome = req.query.nome as string;
+      const resultados = await BuscaService.porNome(nome);
+      res.json(resultados);
     }
     catch (error) {
-        if (error instanceof Error) {
-          res.status(400).json({ error: error.message });
-        } else {
-          res.status(400).json({ error: 'Ocorreu um erro desconhecido.' });
-        }
+      if (error instanceof Error) {
+        res.status(400).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: 'Ocorreu um erro desconhecido.' });
       }
+    }
   },
 
   async porCategoria(req: Request, res: Response) {

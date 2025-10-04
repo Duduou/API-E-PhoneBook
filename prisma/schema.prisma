@@ -3,18 +3,19 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Usuario {
-  id        Int        @id @default(autoincrement())
+  id        Int               @id @default(autoincrement())
   nome      String
-  email     String     @unique
+  email     String            @unique
   senha     String
   foto      String?
-  admin     Boolean    @default(false)
+  admin     Boolean           @default(false)
   favoritos Favorita[]
+  estabelecimentos Estabelecimento[]
 }
 
 model Estabelecimento {
@@ -35,6 +36,8 @@ model Estabelecimento {
   tags          TagEstabelecimento[]
   horario       Horario?
   favoritadoPor Favorita[]
+  usuarioId Int
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
 }
 
 model Foto {

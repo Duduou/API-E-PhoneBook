@@ -3,8 +3,22 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const EstabelecimentoService = {
-  async create(data: any) {
-    return prisma.estabelecimento.create({ data });
+  async create(data: any, usuarioId: number) {
+    return prisma.estabelecimento.create({
+      data: {
+        ...data,
+        usuario: { connect: { id: usuarioId } }
+      },
+      include: {
+        fotos: true,
+        telefones: true,
+        emails: true,
+        categorias: { include: { categoria: true } },
+        tags: { include: { tag: true } },
+        horario: true,
+        usuario: true
+      }
+    });
   },
 
   async findAll() {
@@ -16,6 +30,7 @@ export const EstabelecimentoService = {
         categorias: { include: { categoria: true } },
         tags: { include: { tag: true } },
         horario: true,
+        usuario: true
       }
     });
   },
@@ -30,6 +45,7 @@ export const EstabelecimentoService = {
         categorias: { include: { categoria: true } },
         tags: { include: { tag: true } },
         horario: true,
+        usuario: true
       }
     });
   },

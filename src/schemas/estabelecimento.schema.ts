@@ -10,4 +10,5 @@ export const estabelecimentoSchema = z.object({
   facebook: z.string().optional(),
   instagram: z.string().optional(),
   fotoPerfil: z.string().optional(),
+  usuarioId: z.number().optional()
 });
