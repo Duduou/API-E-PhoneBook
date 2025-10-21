@@ -178,7 +178,7 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
   * **arquivo**: (imagem)
 * **Retorno:** dados da foto associada
 
-### Subrotas: Telefones
+## Subrotas: Telefones
 
 ### **POST /estabelecimentos/\:id/telefones** – Adiciona telefone (autenticado)
 * **Header:** Authorization: Bearer <token>
@@ -189,7 +189,7 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 ### **DELETE /telefones/\:id** – Remove telefone (autenticado)
 * **Header:** Authorization: Bearer <token>
 
-### Subrotas: Emails
+## Subrotas: Emails
 
 ### **POST /estabelecimentos/\:id/emails** – Adiciona email (autenticado)
  **Header:** Authorization: Bearer <token>
@@ -199,7 +199,7 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 ### **DELETE /emails/\:id** – Remove email (autenticado)
 * **Header:** Authorization: Bearer <token>
 
-### Subrotas: Horário
+## Subrotas: Horário
 
 ### **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento (autenticado)
 * **Header:** Authorization: Bearer <token>
