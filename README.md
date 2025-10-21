@@ -1,4 +1,4 @@
-# 📘 Especificações da API EPhone\_Book
+# 📘 Especificações da API Guia\_Local
 
 Para criação do usuário admin, crie o arquivo `seed.ts` na pasta do prisma, seu contedo deve ser:
 
