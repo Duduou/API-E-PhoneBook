@@ -192,7 +192,7 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 ## Subrotas: Emails
 
 ### **POST /estabelecimentos/\:id/emails** – Adiciona email (autenticado)
- **Header:** Authorization: Bearer <token>
+* **Header:** Authorization: Bearer <token>
 
 ### **GET /estabelecimentos/\:id/emails** – Lista emails
 
