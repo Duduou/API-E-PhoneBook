@@ -46,6 +46,6 @@ app.use(horarioRoutes);
 import favoritaRoutes from './routes/favorita.routes';
 app.use(favoritaRoutes);
 
-app.listen(3000, '0.0.0.0',() => {
-  console.log(`Servidor rodando em http://${HOST_PUBLIC}:${PORT}`);
+app.listen(3107, '0.0.0.0',() => {
+  console.log(`Servidor rodando em http://XXX.xxx.XXX.xxx:XXXX`);
 });

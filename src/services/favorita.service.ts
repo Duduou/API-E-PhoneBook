@@ -20,7 +20,17 @@ export const FavoritaService = {
     return prisma.favorita.findMany({
       where: { usuarioId },
       include: {
-        estabelecimento: true
+        estabelecimento: {
+          include: {
+            categorias: { include: { categoria: true } },
+            fotos: true,
+            telefones: true,
+            emails: true,
+            horario: true,
+            usuario: true,
+            tags: { include: { tag: true } }
+          }
+        }
       }
     });
   }

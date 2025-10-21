@@ -13,4 +13,6 @@ router.get('/foto', UsuarioController.getFoto);
 
 router.get('/nome', UsuarioController.getNome);
 
+router.get('/id', UsuarioController.getId);
+
 export default router;

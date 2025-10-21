@@ -36,7 +36,7 @@ E o arquivo `.env` deve ser adicionado na raiz do projeto e deve definir os segu
 - `DATABASE_URL="mysql://USUARIO:SENHA@localhost:3306/ephonebook"`
 Url para acesso ao banco de dados MySQL.
 
-- `JWT_SECRET="chaveDoBalacobaco"`
+- `JWT_SECRET="chaveSuperSecreta"`
 Chave para criptografar e descriptografar os JWT.
 
 - `PORT=3000`
@@ -136,7 +136,8 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### POST /estabelecimentos
 
-* Cria um novo estabelecimento.
+* Cria um novo estabelecimento (autenticado).
+* **Header:** Authorization: Bearer <token>
 * **Body:**
 
 ```json
@@ -161,7 +162,8 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### POST /estabelecimentos/\:id/foto-perfil
 
-* Atualiza a foto de perfil do estabelecimento.
+* Atualiza a foto de perfil do estabelecimento (autenticado).
+* **Header:** Authorization: Bearer <token>
 * **Form-Data:**
 
   * **arquivo**: (imagem)
@@ -169,7 +171,8 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### POST /estabelecimentos/\:id/fotos/upload
 
-* Faz upload de imagem para a galeria.
+* Faz upload de imagem para a galeria (autenticado).
+* **Header:** Authorization: Bearer <token>
 * **Form-Data:**
 
   * **arquivo**: (imagem)
@@ -177,22 +180,37 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### Subrotas: Telefones
 
-* **POST /estabelecimentos/\:id/telefones** – Adiciona telefone
+* **POST /estabelecimentos/\:id/telefones** – Adiciona telefone (autenticado)
+* **Header:** Authorization: Bearer <token>
+
 * **GET /estabelecimentos/\:id/telefones** – Lista telefones
-* **DELETE /telefones/\:id** – Remove telefone
+
+
+* **DELETE /telefones/\:id** – Remove telefone (autenticado)
+* **Header:** Authorization: Bearer <token>
 
 ### Subrotas: Emails
 
-* **POST /estabelecimentos/\:id/emails** – Adiciona email
+* **POST /estabelecimentos/\:id/emails** – Adiciona email (autenticado)
+* **Header:** Authorization: Bearer <token>
+
 * **GET /estabelecimentos/\:id/emails** – Lista emails
-* **DELETE /emails/\:id** – Remove email
+
+* **DELETE /emails/\:id** – Remove email (autenticado)
+* **Header:** Authorization: Bearer <token>
 
 ### Subrotas: Horário
 
-* **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento
+* **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento (autenticado)
+* **Header:** Authorization: Bearer <token>
+
 * **GET /estabelecimentos/\:id/horario** – Consulta horário
-* **PUT /estabelecimentos/\:id/horario** – Atualiza horário
-* **DELETE /estabelecimentos/\:id/horario** – Remove horário
+
+* **PUT /estabelecimentos/\:id/horario** – Atualiza horário (autenticado)
+* **Header:** Authorization: Bearer <token>
+
+* **DELETE /estabelecimentos/\:id/horario** – Remove horário (autenticado)
+* **Header:** Authorization: Bearer <token>
 
 ---
 
@@ -265,14 +283,17 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 ## ⭐ Favoritos
 
 ### POST /favoritos/\:id
+* **Header:** Authorization: Bearer <token>
 
 * Adiciona o estabelecimento aos favoritos do usuário autenticado.
 
 ### DELETE /favoritos/\:id
+* **Header:** Authorization: Bearer <token>
 
 * Remove o estabelecimento dos favoritos.
 
 ### GET /favoritos
+* **Header:** Authorization: Bearer <token>
 
 * Lista os estabelecimentos favoritos do usuário autenticado.
 
@@ -281,8 +302,9 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 ## 🧷 Associação
 
 ### POST /estabelecimentos/\:id/categorias
+* **Header:** Authorization: Bearer <token>
 
-* Associa uma ou mais categorias.
+* Associa uma ou mais categorias (autenticado).
 * **Body:**
 
 ```json
@@ -293,11 +315,13 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### DELETE /estabelecimentos/\:id/categorias/\:categoriaId
 
-* Remove a associação com a categoria
+* Remove a associação com a categoria (autenticado).
+* **Header:** Authorization: Bearer <token>
 
 ### POST /estabelecimentos/\:id/tags
 
-* Associa uma ou mais tags.
+* Associa uma ou mais tags (autenticado).
+* **Header:** Authorization: Bearer <token>
 * **Body:**
 
 ```json
@@ -308,7 +332,8 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### DELETE /estabelecimentos/\:id/tags/\:tagId
 
-* Remove a associação com a tag
+* Remove a associação com a tag (autenticado)
+* **Header:** Authorization: Bearer <token>
 
 ---
 

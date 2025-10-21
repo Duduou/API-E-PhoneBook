@@ -75,5 +75,27 @@ export const UsuarioController = {
         res.status(400).json({ error: 'Ocorreu um erro desconhecido.' });
       }
     }
+  },
+
+  async getId(req: Request, res: Response) {
+    try {
+      const userId = req.user?.id;
+      if (userId) {
+        const usuario = await UsuarioService.buscarPorId(userId);
+        if (usuario) {
+          res.status(200).json({ id: usuario.id });
+        } else {
+          res.status(404).json({ error: 'Usuário não encontrado.' });
+        }
+      } else {
+        res.status(401).json({ error: 'Usuário não autenticado.' });
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(400).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: 'Ocorreu um erro desconhecido.' });
+      }
+    }
   }
 };

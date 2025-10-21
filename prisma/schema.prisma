@@ -36,28 +36,28 @@ model Estabelecimento {
   tags          TagEstabelecimento[]
   horario       Horario?
   favoritadoPor Favorita[]
-  usuarioId Int
-  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId     Int
+  usuario       Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 model Foto {
   id                Int             @id @default(autoincrement())
   url               String
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   estabelecimentoId Int
 }
 
 model Telefone {
   id                Int             @id @default(autoincrement())
   numero            String
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   estabelecimentoId Int
 }
 
 model Email {
   id                Int             @id @default(autoincrement())
   email             String
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   estabelecimentoId Int
 }
 
@@ -79,7 +79,7 @@ model Tag {
 model CategoriaEstabelecimento {
   estabelecimentoId Int
   categoriaId       Int
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   categoria         Categoria       @relation(fields: [categoriaId], references: [id])
 
   @@id([estabelecimentoId, categoriaId])
@@ -88,7 +88,7 @@ model CategoriaEstabelecimento {
 model TagEstabelecimento {
   estabelecimentoId Int
   tagId             Int
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   tag               Tag             @relation(fields: [tagId], references: [id])
 
   @@id([estabelecimentoId, tagId])
@@ -106,7 +106,7 @@ model CategoriaTag {
 
 model Horario {
   id                Int             @id @default(autoincrement())
-  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  estabelecimento   Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
   estabelecimentoId Int             @unique
 
   dom String?
@@ -122,8 +122,8 @@ model Favorita {
   usuarioId         Int
   estabelecimentoId Int
 
-  usuario         Usuario         @relation(fields: [usuarioId], references: [id])
-  estabelecimento Estabelecimento @relation(fields: [estabelecimentoId], references: [id])
+  usuario         Usuario         @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  estabelecimento Estabelecimento @relation(fields: [estabelecimentoId], references: [id], onDelete: Cascade)
 
   @@id([usuarioId, estabelecimentoId])
 }
