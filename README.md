@@ -180,36 +180,36 @@ Então após realizada a instalação, basta rodar `npm run dev` para subir o se
 
 ### Subrotas: Telefones
 
-* **POST /estabelecimentos/\:id/telefones** – Adiciona telefone (autenticado)
+### **POST /estabelecimentos/\:id/telefones** – Adiciona telefone (autenticado)
 * **Header:** Authorization: Bearer <token>
 
-* **GET /estabelecimentos/\:id/telefones** – Lista telefones
+### **GET /estabelecimentos/\:id/telefones** – Lista telefones
 
 
-* **DELETE /telefones/\:id** – Remove telefone (autenticado)
+### **DELETE /telefones/\:id** – Remove telefone (autenticado)
 * **Header:** Authorization: Bearer <token>
 
 ### Subrotas: Emails
 
-* **POST /estabelecimentos/\:id/emails** – Adiciona email (autenticado)
-* **Header:** Authorization: Bearer <token>
+### **POST /estabelecimentos/\:id/emails** – Adiciona email (autenticado)
+ **Header:** Authorization: Bearer <token>
 
-* **GET /estabelecimentos/\:id/emails** – Lista emails
+### **GET /estabelecimentos/\:id/emails** – Lista emails
 
-* **DELETE /emails/\:id** – Remove email (autenticado)
+### **DELETE /emails/\:id** – Remove email (autenticado)
 * **Header:** Authorization: Bearer <token>
 
 ### Subrotas: Horário
 
-* **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento (autenticado)
+### **POST /estabelecimentos/\:id/horario** – Cria horário de funcionamento (autenticado)
 * **Header:** Authorization: Bearer <token>
 
-* **GET /estabelecimentos/\:id/horario** – Consulta horário
+### **GET /estabelecimentos/\:id/horario** – Consulta horário
 
-* **PUT /estabelecimentos/\:id/horario** – Atualiza horário (autenticado)
+### **PUT /estabelecimentos/\:id/horario** – Atualiza horário (autenticado)
 * **Header:** Authorization: Bearer <token>
 
-* **DELETE /estabelecimentos/\:id/horario** – Remove horário (autenticado)
+### **DELETE /estabelecimentos/\:id/horario** – Remove horário (autenticado)
 * **Header:** Authorization: Bearer <token>
 
 ---
